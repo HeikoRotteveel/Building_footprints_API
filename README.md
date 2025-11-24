@@ -25,8 +25,8 @@ maxy = 450000.0
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/HeikoRotteveel/Building_footrpints_API
-cd Building_footrpints_API
+git https://github.com/HeikoRotteveel/Building_footprints_API
+cd Building_footprints_API
 ```
 
 2. Create a virtual environment (recommended):
@@ -52,9 +52,10 @@ Now that you have downloaded all the files and the required libraries, you can s
 ---
 ```
 .
+├── 01_backend_setup.py         # The backend setup code
+├── 02_api.py                   # The API code
 ├── buildings_database.db       # DuckDB database with geometry + bbox columns
 ├── gemeentegebied.json         # JSON file of municipalities in Zuid-Holland
-├── main.py                     # The API code
 ├── schemas.py                  # Pydantic response models
 ├── paginator.py                # Pagination helper
 ├── requirements.txt            # Requirements
