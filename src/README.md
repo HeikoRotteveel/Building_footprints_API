@@ -14,7 +14,7 @@ maxx = 85800.0
 maxy = 450000.0
 ```
 
-![study_area.png](study_area.png)
+![study_area.png](../study_area.png)
 
 ---
 
@@ -26,7 +26,7 @@ maxy = 450000.0
 
 ```bash
 git https://github.com/HeikoRotteveel/Building_footprints_API
-cd Building_footprints_API
+cd Building_footprints_API/src
 ```
 
 2. Create a virtual environment (recommended):
@@ -52,14 +52,18 @@ Now that you have downloaded all the files and the required libraries, you can s
 ---
 ```
 .
-├── 01_backend_setup.py         # The backend setup code
-├── 02_api.py                   # The API code
-├── buildings_database.db       # DuckDB database with geometry + bbox columns
-├── gemeentegebied.json         # JSON file of municipalities in Zuid-Holland
-├── schemas.py                  # Pydantic response models
-├── paginator.py                # Pagination helper
-├── requirements.txt            # Requirements
-└── README.md                   # Project documentation
+├── src 
+│   └── 01_backend_setup.py         # The backend setup code
+│   └── 02_api.py                   # The API code
+│   └── buildings_database.db       # DuckDB database with geometry + bbox columns
+│   └── gemeentegebied.json         # JSON file of municipalities in Zuid-Holland
+│   └── schemas.py                  # Pydantic response models
+│   └── paginator.py                # Pagination helper
+│   └── requirements.txt            # Requirements
+│   └──  README.md                  # Project documentation
+├── report
+│   └──  report.pdf                 # Project report
+
 ```
 
 ## **Main steps - Backend setup**
