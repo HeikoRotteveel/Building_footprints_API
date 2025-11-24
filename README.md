@@ -53,6 +53,7 @@ Now that you have downloaded all the files and the required libraries, you can s
 ```
 .
 ├── buildings_database.db       # DuckDB database with geometry + bbox columns
+├── gemeentegebied.json         # JSON file of municipalities in Zuid-Holland
 ├── main.py                     # The API code
 ├── schemas.py                  # Pydantic response models
 ├── paginator.py                # Pagination helper
