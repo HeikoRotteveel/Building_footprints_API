@@ -56,7 +56,6 @@ def bbox_errors(xmin, ymin, xmax, ymax):
     if ymin >= ymax:
         raise HTTPException(400, "ymin must be < ymax")
 
-
 ####################################
 ###########  ENDPOINTS  ############
 ####################################
@@ -81,6 +80,9 @@ async def read_municipalities(request: Request, limit: int = 50, offset: int = 0
 
     except Exception as e:
         raise HTTPException(500, f"Database query failed: {str(e)}")
+
+    if df.empty:
+        raise HTTPException(404, "No municipalities found")
 
     data = df.to_dict(orient="records")
     paginator = Paginator(request, limit, offset, total_count)
@@ -133,21 +135,23 @@ async def buildings_in_municipality(request: Request, municipality: str, limit: 
                     }
 
         features.append(feature)
-        feature_collection = { "type": "FeatureCollection",
-                               "features": features }
+
+
+    feature_collection = { "type": "FeatureCollection",
+                           "features": features }
 
 
 
-        paginator = Paginator(request, limit, offset, total_count)
+    paginator = Paginator(request, limit, offset, total_count)
 
-        return {"meta":
-                     { "total_count": total_count,
-                       "limit": limit,
-                       "offset": offset,
-                       "returned_features": len(features),
-                       "previous": paginator.previous(),
-                       "next": paginator.next() },
-                 "data": feature_collection }
+    return {"meta":
+                 { "total_count": total_count,
+                   "limit": limit,
+                   "offset": offset,
+                   "returned_features": len(features),
+                   "previous": paginator.previous(),
+                   "next": paginator.next() },
+             "data": feature_collection }
 
 @app.get("/collections/{municipality}/items/{building_id}", response_model=Feature)
 async def building_in_municipality(municipality: str, building_id: str):
