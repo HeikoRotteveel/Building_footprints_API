@@ -25,7 +25,7 @@ maxy = 450000.0
 1. Clone the repository:
 
 ```bash
-git https://github.com/HeikoRotteveel/Building_footprints_API
+git clone https://github.com/HeikoRotteveel/Building_footprints_API
 cd Building_footprints_API/src
 ```
 
